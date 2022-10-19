@@ -69,6 +69,25 @@ p {
     font-size: 60px;
 }
 
+.box-malas {
+    margin: auto;
+    position: fixed;
+    width: 80%;
+    height: 40%;
+    z-index: 10;
+    top:40%; 
+    left:10%;
+    display:flex;
+    justify-content: space-around;
+}
+
+.mala {
+    float:left;
+	margin: 10px;
+    height: 80%;
+    width: 20%;
+}
+
 .footer {
     position: fixed;
     bottom: 0;
