@@ -5,37 +5,47 @@
     <title>100 Senditos Dijeron</title>
     <link rel="stylesheet" href="style.css">
 </head>
- 
+
 <body>
 
     <h1>100 SENDITOS DIJERON</h1>
 
     <div class="puntos"> 
-        <p>10</p>
+        <p id="puntaje"></p>
+    </div>
+
+    <div class="box-pregunta">
+        <p id="pregunta"></p>
     </div>
 
     <div class="cont-respuestas">
 
         <div class="respuesta">
-            <p>sí</p>
+            <p id="res1"></p>
         </div>
 
         <div class="respuesta">
-            <p>sí</p>
+            <p id="res2"></p>
         </div>
 
         <div class="respuesta">
-            <p>sí</p>
+            <p id="res3"></p>
         </div>
 
         <div class="respuesta">
-            <p>sí</p>
+            <p id="res4"></p>
         </div>
 
         <div class="respuesta">
-            <p>sí</p>
+            <p id="res5"></p>
         </div>
 
+        <script src="script.js"></script>
+
+    </div>
+
+    <div class="footer">
+        <input type="file" onchange="readFile(this)">
     </div>
 
 </body>

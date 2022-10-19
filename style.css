@@ -52,5 +52,39 @@ p {
 .respuesta p {
     transform: translate(0%, -70%);
     font-family: 'Courier New', Courier, monospace;
+    font-size: 0px;
+}
+
+.box-pregunta {
+    margin: 50px auto;
+    border-style: solid;
+    border-color: yellow;
+    width: 1000px;
+    height: 100px;
+}
+
+.box-pregunta p {
+    transform: translate(0%, -70%);
+    font-family: 'Courier New', Courier, monospace;
     font-size: 60px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 25%;
+    height: 5%;
+    background-color: white;
+}
+
+.footer h1 {
+    color: black;
+    font-size: medium;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.footer input {
+    margin-left: 10px;
+    margin-top: 10px;
 }
