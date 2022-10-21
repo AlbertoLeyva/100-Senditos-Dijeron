@@ -5,7 +5,7 @@
     Archivo principal para el juego de 100 Senditos dijeron.
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
-    Ultima modificación: 19/10/22
+    Ultima modificación: 21/10/22
 
 ========================================================================================
  */
@@ -53,6 +53,13 @@ function readFile(input) {
 
 var equis = 0;
 var puntos = 0;
+var seg = 2000;
+
+var uno = true;
+var dos = true;
+var tres = true;
+var cuatro = true;
+var cinco = true;
 
 // Evento para acciones del teclado
 document.addEventListener('keypress', (event) => {
@@ -63,34 +70,39 @@ document.addEventListener('keypress', (event) => {
     if (active) {
     // Condicionales para activar las respuestas con los numeros (1,2,3,4,5)
 
-        if (event.code === "Digit1"){
-            puntos = puntos + 27;
-            document.getElementById("res1").style.fontSize = "60px";
+        if (event.code === "Digit1" && uno){
+            if (puntos < 100){puntos = puntos + 27;}
+            document.getElementById("res1").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            uno = false;
         } 
         
-        else if (event.code === "Digit2"){
-            puntos = puntos + 22;
-            document.getElementById("res2").style.fontSize = "60px";
+        else if (event.code === "Digit2" && dos){
+            if (puntos < 100){puntos = puntos + 22;}
+            document.getElementById("res2").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            dos = false;
         } 
         
-        else if (event.code === "Digit3"){
-            puntos = puntos + 20;
-            document.getElementById("res3").style.fontSize = "60px";
+        else if (event.code === "Digit3" && tres){
+            if (puntos < 100){puntos = puntos + 20;}
+            document.getElementById("res3").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            tres = false;
         } 
         
-        else if (event.code === "Digit4"){
-            puntos = puntos + 17;
-            document.getElementById("res4").style.fontSize = "60px";
+        else if (event.code === "Digit4" && cuatro){
+            if (puntos < 100){puntos = puntos + 17;}
+            document.getElementById("res4").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            cuatro = false;
         } 
         
-        else if (event.code === "Digit5"){
-            puntos = puntos + 14;
-            document.getElementById("res5").style.fontSize = "60px";
+        else if (event.code === "Digit5" && cinco){
+            if (puntos < 100){puntos = puntos + 14;}
+            document.getElementById("res5").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            cinco = false;
         }
 
         // Condicionales para aparecer una equis cuando se aprieta la tecla X
@@ -101,7 +113,7 @@ document.addEventListener('keypress', (event) => {
                 document.getElementById("mala1").width = "230";
                 window.setTimeout(() => {
                     document.getElementById("mala1").width = "0";
-                }, 3000);
+                }, seg);
                 equis = 1;
             }
 
@@ -111,7 +123,7 @@ document.addEventListener('keypress', (event) => {
                 window.setTimeout(() => {
                     document.getElementById("mala1").width = "0";
                     document.getElementById("mala2").width = "0";
-                }, 3000);
+                }, seg);
                 equis = 2;
             }
 
@@ -123,7 +135,7 @@ document.addEventListener('keypress', (event) => {
                     document.getElementById("mala1").width = "0";
                     document.getElementById("mala2").width = "0";
                     document.getElementById("mala3").width = "0";
-                }, 3000);
+                }, seg);
                 equis = 3;
             }
         }

@@ -1,14 +1,27 @@
+<!--
+========================================================================================
+
+    index.html
+    HTML base para 100 Senditos dijeron
+    Hecho por Alberto Leyva
+    Sendas Caminos al Señor 
+    Ultima modificación: 21/10/22
+
+    No soy muy bueno en HTML, si alguien quiere modificalo, adelante.
+
+========================================================================================
+-->
+
 <!DOCTYPE html>
  
 <head>
     <meta charset="UTF-8">
     <title>100 Senditos Dijeron</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 </head>
 
 <body>
-
-    <h1>100 SENDITOS DIJERON</h1>
 
     <div class="puntos"> 
         <p id="puntaje">0</p>
@@ -52,12 +65,12 @@
             </div>
         </div>
 
-        <script src="script.js"></script>
+        <script src="js/script.js"></script>
 
     </div>
 
     <div class="footer">
-        <input type="file" onchange="readFile(this)">
+        <input type="file" accept=".txt" onchange="readFile(this)">
     </div>
 
 </body>
