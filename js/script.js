@@ -37,6 +37,7 @@ function readFile(input) {
     // Funcion para recorrer el archivo y separarlo por \n
     reader.onload = function() {
         var lines = this.result.split('\n');
+        intro.play();
         document.getElementById("pregunta").innerHTML = lines[0];
         active = true;
         for (var line = 1; line < lines.length; line++) {
@@ -61,6 +62,19 @@ var tres = true;
 var cuatro = true;
 var cinco = true;
 
+var intro = new Audio('assets/sounds/Inicio.wav');
+var error = new Audio('assets/sounds/Error.wav');
+var acierto = new Audio('assets/sounds/Respuesta_Correcta.wav');
+var ganador = new Audio('assets/sounds/Ganador.wav');
+
+function ganar(){
+    if (!uno && !dos && !tres && !cuatro && !cinco){
+        window.setTimeout(() => {
+            ganador.play();
+        }, 2000); 
+    }
+}
+
 // Evento para acciones del teclado
 document.addEventListener('keypress', (event) => {
     if (event.defaultPrevented) {
@@ -74,35 +88,45 @@ document.addEventListener('keypress', (event) => {
             if (puntos < 100){puntos = puntos + 27;}
             document.getElementById("res1").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            acierto.play();
             uno = false;
+            this.ganar();
         } 
         
         else if (event.code === "Digit2" && dos){
             if (puntos < 100){puntos = puntos + 22;}
             document.getElementById("res2").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            acierto.play();
             dos = false;
+            this.ganar();
         } 
         
         else if (event.code === "Digit3" && tres){
             if (puntos < 100){puntos = puntos + 20;}
             document.getElementById("res3").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            acierto.play();
             tres = false;
+            this.ganar();
         } 
         
         else if (event.code === "Digit4" && cuatro){
             if (puntos < 100){puntos = puntos + 17;}
             document.getElementById("res4").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            acierto.play();
             cuatro = false;
+            this.ganar();
         } 
         
         else if (event.code === "Digit5" && cinco){
             if (puntos < 100){puntos = puntos + 14;}
             document.getElementById("res5").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
+            acierto.play();
             cinco = false;
+            this.ganar();
         }
 
         // Condicionales para aparecer una equis cuando se aprieta la tecla X
@@ -110,6 +134,7 @@ document.addEventListener('keypress', (event) => {
         if (event.code === "KeyX"){
 
             if (equis == 0){
+                error.play();
                 document.getElementById("mala1").width = "230";
                 window.setTimeout(() => {
                     document.getElementById("mala1").width = "0";
@@ -118,6 +143,7 @@ document.addEventListener('keypress', (event) => {
             }
 
             else if (equis == 1){
+                error.play();
                 document.getElementById("mala1").width = "230";
                 document.getElementById("mala2").width = "230";
                 window.setTimeout(() => {
@@ -128,6 +154,7 @@ document.addEventListener('keypress', (event) => {
             }
 
             else if (equis == 2){
+                error.play();
                 document.getElementById("mala1").width = "230";
                 document.getElementById("mala2").width = "230";
                 document.getElementById("mala3").width = "230";
@@ -143,4 +170,3 @@ document.addEventListener('keypress', (event) => {
     event.preventDefault();
 
 }, false);
-
