@@ -205,21 +205,22 @@ document.addEventListener('keypress', (event) => {
             }
         }
 
-        // Botones para seleccionar equipo participando
+        // Boton para seleccionar equipo participando
         if (event.code === "KeyE"){
             if (equipo == 2){
-                document.getElementsByClassName("puntos-e1")[0].style.borderColor = "purple";
+                document.getElementsByClassName("puntos-e1")[0].style.borderColor = "gold";
                 document.getElementsByClassName("puntos-e2")[0].style.borderColor = "black";
                 equipo = 1;
             }
             else if (equipo == 1){
                 document.getElementsByClassName("puntos-e1")[0].style.borderColor = "black";
-                document.getElementsByClassName("puntos-e2")[0].style.borderColor = "purple";
+                document.getElementsByClassName("puntos-e2")[0].style.borderColor = "gold";
                 equipo = 2;
             }
             
         }
 
+        // Usa la G para poppear el equipo ganador desde antes 
         if (event.code === "KeyG"){
             ronda = !ronda;
             ganador.play();

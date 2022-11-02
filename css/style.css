@@ -14,10 +14,14 @@
 ========================================================================================
  */
 
+/*body {
+    background: rgb(132,0,192);
+    background: radial-gradient(circle, rgba(132,0,192,1) 0%, rgba(227,171,0,1) 100%);
+}*/
+
 body {
-    background-color: aquamarine;
-    background-image: linear-gradient(aquamarine, dodgerblue);
-    background-size: 100% 100%;
+    background-color: #50007b;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%23dedc13' fill-opacity='0.89'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 h1{
@@ -40,7 +44,7 @@ p {
     border-style: solid;
     border-width: 10px;
     border-radius: 25px;
-    border-color: purple;
+    border-color: gold;
     margin-bottom:50px;
 }
 
@@ -58,7 +62,7 @@ p {
     width: 150px;
     height: 150px;
     border-style: solid;
-    border-width: 10px;
+    border-width: 5px;
     border-radius: 25px;
     border-color: purple;
     margin-bottom:50px;
@@ -70,7 +74,7 @@ p {
     width: 150px;
     height: 150px;
     border-style: solid;
-    border-width: 10px;
+    border-width: 5px;
     border-radius: 25px;
     border-color: purple;
     margin-bottom:50px;
@@ -101,11 +105,13 @@ p {
     margin: auto;
     padding: 50px;
     border-style: solid;
+    border-radius: 25px;
+    border-width: 20px;
     border-color: purple;
     width: 70%;
     height: 600px;
-    /*background-image: url("../assets/images/back-lights.png");
-    background-size: 100% 100%;*/
+    background-image: url("../assets/images/cool-background.png");
+    background-size: 100% 100%;
     background-color: plum;
     align-items: center;
     display: flex;
