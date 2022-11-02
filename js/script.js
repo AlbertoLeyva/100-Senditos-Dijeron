@@ -38,7 +38,7 @@ function readFile(input) {
     reader.onload = function() {
         var lines = this.result.split('\n');
         intro.play();
-        document.getElementById("pregunta").innerHTML = lines[0];
+        //document.getElementById("pregunta").innerHTML = lines[0];
         active = true;
         for (var line = 1; line < lines.length; line++) {
             var res = "res" + line.toString();
@@ -55,6 +55,8 @@ function readFile(input) {
 var equis = 0;
 var puntos = 0;
 var seg = 2000;
+
+var equipo = 1;
 
 var uno = true;
 var dos = true;
@@ -165,6 +167,21 @@ document.addEventListener('keypress', (event) => {
                 }, seg);
                 equis = 3;
             }
+        }
+
+        // Botones para seleccionar equipo participando
+        if (event.code === "KeyE"){
+            if (equipo == 2){
+                document.getElementsByClassName("puntos-e1")[0].style.borderColor = "purple";
+                document.getElementsByClassName("puntos-e2")[0].style.borderColor = "black";
+                equipo = 1;
+            }
+            else if (equipo == 1){
+                document.getElementsByClassName("puntos-e1")[0].style.borderColor = "black";
+                document.getElementsByClassName("puntos-e2")[0].style.borderColor = "purple";
+                equipo = 2;
+            }
+            
         }
     }
     event.preventDefault();
