@@ -5,7 +5,7 @@
     Archivo principal para el juego de 100 Senditos dijeron.
     Hecho por Alberto Leyva
     Sendas Caminos al Señor 
-    Ultima modificación: 21/10/22
+    Ultima modificación: 01/11/22
 
 ========================================================================================
  */
@@ -16,7 +16,6 @@
 ......................................
     Formato del archivo que se le pasa
 
-        Pregunta
         Respuesta 1
         Respuesta 2
         Respuesta 3
@@ -26,6 +25,27 @@
 */
 
 var active = false;
+const n = 5;
+
+var equis = 0;
+var puntos = 0;
+var seg = 2000;
+
+var equipo = 1;
+var puntosE1 = 0;
+var puntosE2 = 0;
+
+var uno = true;
+var dos = true;
+var tres = true;
+var cuatro = true;
+var cinco = true;
+var ronda = true;
+
+var intro = new Audio('assets/sounds/Inicio.wav');
+var error = new Audio('assets/sounds/Error.wav');
+var acierto = new Audio('assets/sounds/Respuesta_Correcta.wav');
+var ganador = new Audio('assets/sounds/Ganador.wav');
 
 function readFile(input) {
     let file = input.files[0];
@@ -40,8 +60,9 @@ function readFile(input) {
         intro.play();
         //document.getElementById("pregunta").innerHTML = lines[0];
         active = true;
-        for (var line = 1; line < lines.length; line++) {
-            var res = "res" + line.toString();
+        for (var line = 0; line < lines.length; line++) {
+            var l = line + 1;
+            var res = "res" + l.toString();
             document.getElementById(res).innerHTML = lines[line];
         }
     };
@@ -52,29 +73,44 @@ function readFile(input) {
     
 }
 
-var equis = 0;
-var puntos = 0;
-var seg = 2000;
-
-var equipo = 1;
-
-var uno = true;
-var dos = true;
-var tres = true;
-var cuatro = true;
-var cinco = true;
-
-var intro = new Audio('assets/sounds/Inicio.wav');
-var error = new Audio('assets/sounds/Error.wav');
-var acierto = new Audio('assets/sounds/Respuesta_Correcta.wav');
-var ganador = new Audio('assets/sounds/Ganador.wav');
-
 function ganar(){
-    if (!uno && !dos && !tres && !cuatro && !cinco){
+    if (!uno && !dos && !tres && !cuatro && !cinco && ronda){
         window.setTimeout(() => {
             ganador.play();
-        }, 2000); 
+            if (equipo == 1) {
+                puntosE1 += puntos
+                document.getElementById("puntaje1").innerHTML = puntosE1.toString();
+            } else if (equipo == 2) {
+                puntosE2 += puntos
+                document.getElementById("puntaje2").innerHTML = puntosE2.toString();
+            }
+        }, seg); 
     }
+}
+
+function siguiente(){
+    active = false;
+
+    equis = 0;
+    puntos = 0;
+    document.getElementById("puntaje").innerHTML = puntos.toString();
+
+    equipo = 1;
+
+    uno = true;
+    dos = true;
+    tres = true;
+    cuatro = true;
+    cinco = true;
+    ronda = true;
+
+    document.getElementsByClassName("puntos-e1")[0].style.borderColor = "purple";
+    document.getElementsByClassName("puntos-e2")[0].style.borderColor = "purple";
+
+    for (var i = 1; i < 6; i++){
+        document.getElementById("res" + i.toString()).style.fontSize = "0px";
+    }
+
 }
 
 // Evento para acciones del teclado
@@ -182,6 +218,22 @@ document.addEventListener('keypress', (event) => {
                 equipo = 2;
             }
             
+        }
+
+        if (event.code === "KeyG"){
+            ronda = !ronda;
+            ganador.play();
+            if (equipo == 1) {
+                puntosE1 += puntos
+                document.getElementById("puntaje1").innerHTML = puntosE1.toString();
+            } else if (equipo == 2) {
+                puntosE2 += puntos
+                document.getElementById("puntaje2").innerHTML = puntosE2.toString();
+            }
+        }
+
+        if (event.code === "KeyN"){
+            this.siguiente();
         }
     }
     event.preventDefault();
