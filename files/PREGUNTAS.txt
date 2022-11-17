@@ -1,0 +1,64 @@
+Pregunta1.txt
+#Fruta que es verde por fuera
+Sandía
+Pera
+Manzana
+Limón
+Uvas
+
+Pregunta2.txt
+#¿Qué es lo que más se vende en una venta de Sendas?
+Kibis
+Aguas naturales
+Galletas
+Chicharrones
+Cupcakes
+
+Pregunta3.txt
+#¿Qué es lo primero que hace una persona al despertar?
+Abrir los ojos
+Hacer oración
+Desayunar
+Lavarse los dientes
+Bañarse
+
+Pregunta4.txt
+#Servidores actuales que más regañan
+Mariana
+Miguel
+Leyva
+Jessi
+Nadie regaña, los senditos se portan bien
+
+Pregunta5.txt
+#Libro con más capítulos en la Biblia
+Salmos
+Isaías
+Jeremías
+Eclesiástico
+Génesis
+
+Pregunta6.txt
+#Bebidas que se toman en el desayuno
+Leche
+Café
+Jugo
+Yogurth
+Coca
+
+Pregunta7.txt
+#Excusas para llegar tarde a Sendas
+Me dormí
+Estaba en el Oxxo
+Estaba en el parque
+Pensé que era a las 12
+Estaba desayunando
+
+Pregunta8.txt
+#Días o tiempos católicos más importantes
+
+Pregunta9.txt
+#
+
+Pregunta10.txt
+#
