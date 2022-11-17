@@ -123,7 +123,7 @@ document.addEventListener('keypress', (event) => {
     // Condicionales para activar las respuestas con los numeros (1,2,3,4,5)
 
         if (event.code === "Digit1" && uno){
-            if (puntos < 100){puntos = puntos + 27;}
+            if (puntos < 100 && ronda){puntos = puntos + 27;}
             document.getElementById("res1").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
             acierto.play();
@@ -132,7 +132,7 @@ document.addEventListener('keypress', (event) => {
         } 
         
         else if (event.code === "Digit2" && dos){
-            if (puntos < 100){puntos = puntos + 22;}
+            if (puntos < 100 && ronda){puntos = puntos + 22;}
             document.getElementById("res2").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
             acierto.play();
@@ -141,7 +141,7 @@ document.addEventListener('keypress', (event) => {
         } 
         
         else if (event.code === "Digit3" && tres){
-            if (puntos < 100){puntos = puntos + 20;}
+            if (puntos < 100 && ronda){puntos = puntos + 20;}
             document.getElementById("res3").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
             acierto.play();
@@ -150,7 +150,7 @@ document.addEventListener('keypress', (event) => {
         } 
         
         else if (event.code === "Digit4" && cuatro){
-            if (puntos < 100){puntos = puntos + 17;}
+            if (puntos < 100 && ronda){puntos = puntos + 17;}
             document.getElementById("res4").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
             acierto.play();
@@ -159,7 +159,7 @@ document.addEventListener('keypress', (event) => {
         } 
         
         else if (event.code === "Digit5" && cinco){
-            if (puntos < 100){puntos = puntos + 14;}
+            if (puntos < 100 && ronda){puntos = puntos + 14;}
             document.getElementById("res5").style.fontSize = "2.5vmax";
             document.getElementById("puntaje").innerHTML = puntos.toString();
             acierto.play();
@@ -171,38 +171,43 @@ document.addEventListener('keypress', (event) => {
 
         if (event.code === "KeyX"){
 
-            if (equis == 0){
+            if(event.shiftKey){
                 error.play();
-                document.getElementById("mala1").width = "230";
-                window.setTimeout(() => {
-                    document.getElementById("mala1").width = "0";
-                }, seg);
-                equis = 1;
             }
-
-            else if (equis == 1){
-                error.play();
-                document.getElementById("mala1").width = "230";
-                document.getElementById("mala2").width = "230";
-                window.setTimeout(() => {
-                    document.getElementById("mala1").width = "0";
-                    document.getElementById("mala2").width = "0";
-                }, seg);
-                equis = 2;
-            }
-
-            else if (equis == 2){
-                error.play();
-                document.getElementById("mala1").width = "230";
-                document.getElementById("mala2").width = "230";
-                document.getElementById("mala3").width = "230";
-                window.setTimeout(() => {
-                    document.getElementById("mala1").width = "0";
-                    document.getElementById("mala2").width = "0";
-                    document.getElementById("mala3").width = "0";
-                }, seg);
-                equis = 3;
-            }
+            else {
+                if (equis == 0){
+                    error.play();
+                    document.getElementById("mala1").width = "230";
+                    window.setTimeout(() => {
+                        document.getElementById("mala1").width = "0";
+                    }, seg);
+                    equis = 1;
+                }
+    
+                else if (equis == 1){
+                    error.play();
+                    document.getElementById("mala1").width = "230";
+                    document.getElementById("mala2").width = "230";
+                    window.setTimeout(() => {
+                        document.getElementById("mala1").width = "0";
+                        document.getElementById("mala2").width = "0";
+                    }, seg);
+                    equis = 2;
+                }
+    
+                else if (equis == 2){
+                    error.play();
+                    document.getElementById("mala1").width = "230";
+                    document.getElementById("mala2").width = "230";
+                    document.getElementById("mala3").width = "230";
+                    window.setTimeout(() => {
+                        document.getElementById("mala1").width = "0";
+                        document.getElementById("mala2").width = "0";
+                        document.getElementById("mala3").width = "0";
+                    }, seg);
+                    equis = 3;
+                }
+            }  
         }
 
         // Boton para seleccionar equipo participando
@@ -222,20 +227,24 @@ document.addEventListener('keypress', (event) => {
 
         // Usa la G para poppear el equipo ganador desde antes 
         if (event.code === "KeyG"){
-            ronda = !ronda;
-            ganador.play();
-            if (equipo == 1) {
-                puntosE1 += puntos
-                document.getElementById("puntaje1").innerHTML = puntosE1.toString();
-            } else if (equipo == 2) {
-                puntosE2 += puntos
-                document.getElementById("puntaje2").innerHTML = puntosE2.toString();
-            }
+            if (ronda){
+                ganador.play();
+                if (equipo == 1 && ronda) {
+                    puntosE1 += puntos
+                    document.getElementById("puntaje1").innerHTML = puntosE1.toString();
+                } else if (equipo == 2 && ronda) {
+                    puntosE2 += puntos
+                    document.getElementById("puntaje2").innerHTML = puntosE2.toString();
+                }
+                ronda = !ronda;
+            }       
         }
 
         if (event.code === "KeyN"){
             this.siguiente();
         }
+
+        
     }
     event.preventDefault();
 
