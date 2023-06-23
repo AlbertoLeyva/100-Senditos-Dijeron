@@ -25,7 +25,7 @@
 }*/
 
 body {
-    background-image: radial-gradient(circle, #fbe183, #ffaf77, #f68383, #cb6498, #8558a3);
+    background: radial-gradient(circle, rgba(251,198,63,1) 0%, rgba(11,216,35,1) 100%);
 }
 
 h1{
